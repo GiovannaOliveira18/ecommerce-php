@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Eco Luxo</title>
+    <link rel="stylesheet" href="styleCarrinho.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="script.js"></script>
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="imgsEcomerce/SITE_EcoLuxo.png" alt="Logo EcoLuxo" height="80px">
+    </div>
+
+    <?php include ("cabecalho.php"); 
+      if ( $sessaoConectado ) {
+
+          $idSessao = session_id();
+          echo "
+          <nav>
+              <a href='index.php'><i class='fa-solid fa-house'></i> Home</a>
+              <a href='produtos.php'><i class='fa-solid fa-store'></i> Produtos</a>
+              <a href='carrinho.php'><i class='fa-solid fa-cart-shopping'></i> Carrinho</a>
+              <a> <i class='fa-solid fa-user'></i> Olá, $login | ID: <b>$idSessao</b> </a>
+              <a href='logout.php'><i class='fa-solid fa-right-from-bracket'></i>Sair</a> 
+          </nav>";
+
+      } else {
+          echo "    
+              <nav>
+                  <a href='index.php'><i class='fa-solid fa-house'></i> Home</a>
+                  <a href='carrinho.php'><i class='fa-solid fa-cart-shopping'></i> Carrinho</a>
+                  <a href='login.php'><i class='fa-solid fa-user'></i> Login</a>
+              </nav>
+          ";
+      }
+      echo "<hr>";
+    ?>
+    
+    <!-- <nav>
+      <a href="index.php"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="produtos.php"><i class="fa-solid fa-store"></i> Produtos</a>
+      <a href="carrinho.php"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a>
+      <a href="login.php"><i class="fa-solid fa-user"></i> Login</a>
+    </nav> -->
+
+     <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </header>
+
+<div class="menu-secundario">
+  <p>PAGUE AQUI SEUS PRODUTOS</p>
+</div>
+
+<main>
+  <h1>Meu Carrinho</h1>
+
+  <section class="carrinho">
+    <div class="itens-carrinho">
+      <div class="produto">
+        <img src="imgsEcomerce/bolsaEle.png" alt="EcoBag Eletrônica">
+        <div class="info">
+          <p class="nome">EcoBag Eletrônica</p>
+          <p class="preco">R$ 25,00</p>
+        </div>
+        <div class="quantidade">
+          <button class="menos">-</button>
+          <input type="text" value="0">
+          <button class="mais">+</button>
+        </div>
+        <p class="subtotal">R$ 0,00</p>
+      </div>
+
+      <div class="produto">
+        <img src="imgsEcomerce/bolsaInf.png" alt="EcoBag Informática">
+        <div class="info">
+          <p class="nome">EcoBag Informática</p>
+          <p class="preco">R$ 25,00</p>
+        </div>
+        <div class="quantidade">
+          <button class="menos">-</button>
+          <input type="text" value="0">
+          <button class="mais">+</button>
+        </div>
+        <p class="subtotal">R$ 0,00</p>
+      </div>
+
+      <div class="produto">
+        <img src="imgsEcomerce/bolsaMec.png" alt="EcoBag Mecânica">
+        <div class="info">
+          <p class="nome">EcoBag Mecânica</p>
+          <p class="preco">R$ 25,00</p>
+        </div>
+        <div class="quantidade">
+          <button class="menos">-</button>
+          <input type="text" value="0">
+          <button class="mais">+</button>
+        </div>
+        <p class="subtotal">R$ 0,00</p>
+      </div>
+
+      <div class="produto">
+        <img src="imgsEcomerce/bolsaSla.png" alt="EcoBag Personalizada">
+        <div class="info">
+          <p class="nome">EcoBag Personalizada</p>
+          <p class="preco">R$ 25,00</p>
+        </div>
+        <div class="quantidade">
+          <button class="menos">-</button>
+          <input type="text" value="0">
+          <button class="mais">+</button>
+        </div>
+        <p class="subtotal">R$ 0,00</p>
+      </div>
+
+      <div class="produto">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5460vtVj_DGjABKX4sFdGW7WFjEWvCJdcQ&s" alt="Perfumes">
+        <div class="info">
+          <p class="nome">Perfume</p>
+          <p class="preco">R$ 25,00</p>
+        </div>
+        <div class="quantidade">
+          <button class="menos">-</button>
+          <input type="text" value="0">
+          <button class="mais">+</button>
+        </div>
+        <p class="subtotal">R$ 0,00</p>
+      </div>
+    </div>
+
+    <div class="resumo">
+      <h2>Resumo do Pedido</h2>
+      <div class="linha">
+        <span>Subtotal</span>
+        <span id="subtotal">R$ 0,00</span>
+      </div>
+      <div class="linha">
+        <span>Frete</span>
+        <span>Sem Frete</span>
+      </div>
+      <div class="linha total">
+        <span>Total</span>
+        <span id="total">R$ 0,00</span>
+      </div>
+      <a href="#" class="btn-finalizar" id="btnFinalizar">Finalizar Compra</a>
+      <span id="msgCompra">Compra realizada! Retire seu produto no caixa.</span>
+    </div>
+  </section>
+</main>
+
+
+
+
+<script>
+const produtos = document.querySelectorAll(".produto");
+const subtotalEl = document.getElementById("subtotal");
+const totalEl = document.getElementById("total");
+const btnFinalizar = document.getElementById("btnFinalizar");
+const msgCompra = document.getElementById("msgCompra");
+
+produtos.forEach(produto => {
+  const input = produto.querySelector("input");
+  const preco = parseFloat(produto.querySelector(".preco").textContent.replace("R$", "").replace(",", "."));
+  const subtotal = produto.querySelector(".subtotal");
+
+  input.value = 0;
+  subtotal.textContent = "R$ 0,00";
+
+  produto.querySelectorAll(".quantidade button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      let qtd = parseInt(input.value) || 0;
+      if(btn.classList.contains("mais")) qtd++;
+      if(btn.classList.contains("menos") && qtd > 0) qtd--;
+      input.value = qtd;
+      subtotal.textContent = "R$ " + (qtd * preco).toFixed(2).replace(".", ",");
+      atualizarResumo();
+    });
+  });
+});
+
+function atualizarResumo() {
+  let total = 0;
+  produtos.forEach(produto => {
+    total += parseFloat(produto.querySelector(".subtotal").textContent.replace("R$", "").replace(",", "."));
+  });
+  subtotalEl.textContent = "R$ " + total.toFixed(2).replace(".", ",");
+  totalEl.textContent = "R$ " + total.toFixed(2).replace(".", ",");
+}
+
+btnFinalizar.addEventListener("click", e => {
+  e.preventDefault();
+  msgCompra.style.display = "block";
+});
+</script>
+
+
+</body>
+</html>

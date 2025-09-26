@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - EcoLuxo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"
+    >
+    <link rel="stylesheet" href="styleHeader.css">
+    <link rel="stylesheet" href="styleProd.css">
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+  
+  <header>
+    <div class="logo">
+      <img src="imgsEcomerce/SITE_EcoLuxo.png" alt="Logo EcoLuxo" height="80px">
+    </div>
+
+    <?php include ("cabecalho.php"); 
+      if ( $sessaoConectado ) {
+
+          $idSessao = session_id();
+          echo "
+          <nav>
+              <a href='index.php'><i class='fa-solid fa-house'></i> Home</a>
+              <a href='produtos.php'><i class='fa-solid fa-store'></i> Produtos</a>
+              <a href='carrinho.php'><i class='fa-solid fa-cart-shopping'></i> Carrinho</a>
+              <a> <i class='fa-solid fa-user'></i> Olá, $login | ID: <b>$idSessao</b> </a>
+              <a href='logout.php'><i class='fa-solid fa-right-from-bracket'></i>Sair</a> 
+          </nav>";
+
+      } else {
+          echo "    
+              <nav>
+                  <a href='index.php'><i class='fa-solid fa-house'></i> Home</a>
+                  <a href='carrinho.php'><i class='fa-solid fa-cart-shopping'></i> Carrinho</a>
+                  <a href='login.php'><i class='fa-solid fa-user'></i> Login</a>
+              </nav>
+          ";
+      }
+      echo "<hr>";
+    ?>
+    
+    <!-- <nav>
+      <a href="index.php"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="produtos.php"><i class="fa-solid fa-store"></i> Produtos</a>
+      <a href="carrinho.php"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a>
+      <a href="login.php"><i class="fa-solid fa-user"></i> Login</a>
+    </nav> -->
+
+     <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </header>
+
+
+  <div class="promo-bar">
+    ✨ APROVEITE NOSSOS PRODUTOS, NAQUELE PRECINHO! ✨
+  </div>
+
+  <main>
+  <section class="produtos">
+  <article class="produto">
+    <img src="imgsEcomerce/bolsaEle.png" alt="Ecobag Estampada">
+    <p class="preco">R$25,00</p>
+    <p class="nome">EcoBag ELETRÔNICA</p>
+    <p class="parcelamento">Aceitamos PIX</p>
+    <p class="avaliacao">⭐⭐⭐⭐⭐</p>
+    <button class="btn-saiba">Saiba mais</button>
+    <div class="descricao-produto">
+      Esta EcoBag eletrônica é feita com material resistente, ideal para carregar seus gadgets com estilo.
+    </div>
+    <a href="carrinho.php" class="btn-comprar">Comprar</a>
+  </article>
+
+  <article class="produto">
+    <img src="imgsEcomerce/bolsaInf.png" alt="Ecobag Lisa">
+    <p class="preco">R$25,00</p>
+    <p class="nome">EcoBag INFORMÁTICA</p>
+    <p class="parcelamento">Aceitamos PIX</p>
+    <p class="avaliacao">⭐⭐⭐⭐⭐</p>
+    <button class="btn-saiba">Saiba mais</button>
+    <div class="descricao-produto">
+      EcoBag de Informática: resistente e prática para carregar livros, notebooks e acessórios do dia a dia.
+    </div>
+    <a href="carrinho.php" class="btn-comprar">Comprar</a>
+  </article>
+
+  <article class="produto">
+    <img src="imgsEcomerce/bolsaMec.png" alt="Ecobag Mecânica">
+    <p class="preco">R$25,00</p>
+    <p class="nome">EcoBag MECÂNICA</p>
+    <p class="parcelamento">Aceitamos PIX</p>
+    <p class="avaliacao">⭐⭐⭐⭐⭐</p>
+    <button class="btn-saiba">Saiba mais</button>
+    <div class="descricao-produto">
+      EcoBag Mecânica: feita com tecido reforçado, perfeita para carregar ferramentas leves ou materiais de estudo.
+    </div>
+    <a href="carrinho.php" class="btn-comprar">Comprar</a>
+  </article>
+
+  <article class="produto">
+    <img src="imgsEcomerce/bolsaSla.png" alt="EcoBags Personalizadas">
+    <p class="preco">R$25,00</p>
+    <p class="nome">EcoBags Personalizadas</p>
+    <p class="parcelamento">Aceitamos PIX</p>
+    <p class="avaliacao">⭐⭐⭐⭐⭐</p>
+    <button class="btn-saiba">Saiba mais</button>
+    <div class="descricao-produto">
+      EcoBags personalizadas: escolha seu modelo e estampa favorita para levar estilo e sustentabilidade.
+    </div>
+    <a href="carrinho.php" class="btn-comprar">Comprar</a>
+  </article>
+
+  <article class="produto">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5460vtVj_DGjABKX4sFdGW7WFjEWvCJdcQ&s" alt="Perfume">
+    <p class="preco">R$25,00</p>
+    <p class="nome">Perfumes</p>
+    <p class="parcelamento">Aceitamos PIX</p>
+    <p class="avaliacao">⭐⭐⭐⭐⭐</p>
+    <button class="btn-saiba">Saiba mais</button>
+    <div class="descricao-produto">
+      Perfumes sofisticados e de longa duração, ideais para uso diário ou presente especial.
+    </div>
+    <a href="carrinho.php" class="btn-comprar">Comprar</a>
+  </article>
+</section>
+
+  </main>
+
+</body>
+</html>
+
