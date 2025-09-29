@@ -2,7 +2,7 @@
     function conecta ($params = "") {
         if ($params == "") {
             $params = "pgsql:host=projetoscti.com.br;  port=54432; 
-            dbname=eq1.inf2; user=eq1inf2; password=eq12556"; 
+            dbname=eq1.inf2; user=eq1.inf2; password=eq12556"; 
         }
 
         try {
@@ -10,7 +10,9 @@
             return $varConn;
         }
         catch (PDOException $e) {
-            echo "Não foi possível conectar";
+            echo "<script>
+                    alert('Não foi possível se conectar ao banco!');
+                </script>";
             exit;
         }
     }

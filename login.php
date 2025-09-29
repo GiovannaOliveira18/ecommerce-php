@@ -21,7 +21,7 @@
 
             <form method="post" action="">
                 <label for="usuario">Usuário</label>
-                <input name="login" type="text" id="usuario" placeholder="Digite seu usuário">
+                <input name="usuario" type="text" id="usuario" placeholder="Digite seu usuário">
 
                 <label for="senha">Senha</label>
                 <input name="senha" type="password" id="senha" placeholder="Digite sua senha">
@@ -40,7 +40,7 @@
 </html>
 
 <?php
-    include ("cabecalho.php");
+    /*include ("cabecalho.php");
 
     $_SESSION['sessaoConectado'] = false;
     $_SESSION['sessaoLogin'] = "";
@@ -72,9 +72,53 @@
                 </script>
             <?php
         }
-    }
+    }*/
 
-    
+    if ( $_POST ) {
+        include "util.php";
+        session_start();
+
+        $usuario = $_POST['usuario'];
+        $conn = conecta();
+
+        $select = $conn->prepare("select nome,senha,admin 
+                                    from usuario 
+                                    where email=:usuario");
+
+        $select->bindParam(":usuario",$usuario);
+
+
+        /*
+            OBSERVACAO, ao adotarmos criptografia na senha, 
+            lembre que insertUsuario.php precisara passar por uma melhoria:
+            (...)
+            $senhaCripto = password_hash($senha,PASSWORD_DEFAULT);
+            $insert->bindParams(":senha",$senhaCripto);
+            (...)
+        */
+
+        $senha   = $_POST['senha'];
+
+        $select->execute();
+        $linha = $select->fetch();
+        
+        if ( password_verify($senha,$linha['senha']) ) {
+            $_SESSION['statusConectado'] = true;
+            $_SESSION['admin'] = $linha['admin'];
+            $_SESSION['login'] = $linha['nome'];
+            header("location: index.php"); 
+        } else {
+            $_SESSION['statusConectado'] = false;
+            $_SESSION['admin'] = false;
+            $_SESSION['login'] = ""; 
+            echo "<script>
+                    alert('Usuário ou senha incorreta!!');
+                </script>";
+        }
+        
+                   
+                    
+    }   
 
 ?>
 

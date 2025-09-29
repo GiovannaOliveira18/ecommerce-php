@@ -1,13 +1,15 @@
 <?php 
     session_start();
 
-    if ( isset($_SESSION['sessaoConectado']) ) {
+    if ( isset($_SESSION['statusConectado']) ) {
 
-        $sessaoConectado = $_SESSION['sessaoConectado'];
-        $login = $_SESSION['sessaoLogin'];
+        $sessaoConectado = $_SESSION['statusConectado'];
+        $login = $_SESSION['login'];
     } else {
         $sessaoConectado = false;
     }
+
+    
 
     // if ( $sessaoConectado ) {
 

@@ -20,20 +20,33 @@
     </div>
 
     <?php 
-    include ("util.php");
-    include ("cabecalho.php");
+    include "util.php";
+    include "cabecalho.php";
 
       if ( $sessaoConectado ) {
 
           $idSessao = session_id();
-          echo "
-          <nav>
-              <a href='index.php'><i class='fa-solid fa-house'></i> Home</a>
-              <a href='produtos.php'><i class='fa-solid fa-store'></i> Produtos</a>
-              <a href='carrinho.php'><i class='fa-solid fa-cart-shopping'></i> Carrinho</a>
-              <a> <i class='fa-solid fa-user'></i> Olá, $login | ID: <b>$idSessao</b> </a>
-              <a href='logout.php'><i class='fa-solid fa-right-from-bracket'></i>Sair</a> 
-          </nav>";
+          
+          if ($_SESSION['admin'] == true ) {
+            echo "<nav>
+                <a href='index.php'><i class='fa-solid fa-house'></i> Home</a>
+                <a href='produtos.php'><i class='fa-solid fa-store'></i> Produtos</a>
+                <a href='carrinho.php'><i class='fa-solid fa-cart-shopping'></i> Carrinho</a>
+                <a> <i class='fa-solid fa-user'></i> Olá, $login | ID: <b>$idSessao</b> </a>
+                <a href='usuarios.php'><i class='fa-solid fa-users'></i> Usuários </a>
+                <a>
+                <a href='logout.php'><i class='fa-solid fa-right-from-bracket'></i>Sair</a> 
+            </nav>";  
+          }
+          else {
+            echo "<nav>
+                <a href='index.php'><i class='fa-solid fa-house'></i> Home</a>
+                <a href='carrinho.php'><i class='fa-solid fa-cart-shopping'></i> Carrinho</a>
+                <a> <i class='fa-solid fa-user'></i> Olá, $login | ID: <b>$idSessao</b> </a>
+                <a href='logout.php'><i class='fa-solid fa-right-from-bracket'></i>Sair</a> 
+            </nav>";
+          }
+          
 
       } else {
           echo "    
