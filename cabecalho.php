@@ -4,15 +4,13 @@
     if ( isset($_SESSION['statusConectado']) ) {
         $sessaoConectado = $_SESSION['statusConectado'];
         $login = $_SESSION['login'];
-    } else if ( isset($_COOKIE['usuario']) && isset($_COOKIE['senha'])) {
+    } 
+    
+    else if ( isset($_COOKIE['usuario']) && isset($_COOKIE['senha'])) {
         $usuarioCookie = $_COOKIE['usuario'];
         $senhaCookie = base64_decode($_COOKIE['senha']);
-
-        include "util.php";
-        
     }
-    
-    
+
     else {
         $sessaoConectado = false;
     }
