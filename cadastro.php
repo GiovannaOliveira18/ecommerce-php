@@ -34,7 +34,7 @@
 
 <?php 
     if ( $_POST ) {
-        
+        include "cabecalho.php";
         include "util.php";
         
         $conn = conecta();
@@ -53,7 +53,12 @@
 
         if ( $insert->execute() ) {
             echo "<script>alert('Usuário $nome criado com sucesso !');</script>";
-            header('Location: login.php');
+
+            $_SESSION['statusConectado'] = true;
+            $_SESSION['login'] = $nome;
+            $_SESSION['admin'] = false;
+
+            header('Location: index.php');
         }
     }
     
