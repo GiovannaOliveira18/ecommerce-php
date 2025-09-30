@@ -38,7 +38,8 @@
         $insert->bindParam(":senha",$senha);
 
         if ( $insert->execute() ) {
-            echo "Admin $nome criado com sucesso !";
+            echo "<script>alert('Admin $nome criado com sucesso !');</script>";
+            header('Location: index.php');
         }
     }
     

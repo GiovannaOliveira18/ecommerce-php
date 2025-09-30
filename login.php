@@ -20,8 +20,8 @@
             <p>Faça seu Login e volte às compras</p>
 
             <form method="post" action="">
-                <label for="usuario">Usuário</label>
-                <input name="usuario" type="text" id="usuario" placeholder="Digite seu usuário">
+                <label for="usuario">E-mail</label>
+                <input name="usuario" type="text" id="usuario" placeholder="Digite seu e-mail">
 
                 <label for="senha">Senha</label>
                 <input name="senha" type="password" id="senha" placeholder="Digite sua senha">
