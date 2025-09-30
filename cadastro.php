@@ -39,10 +39,10 @@
         
         $conn = conecta();
 
-        $nome    = $_POST['nome'];
-        $email   = $_POST['email'];
+        $nome  = $_POST['nome'];
+        $email = $_POST['email'];
 
-        $senha   =  password_hash($_POST['senha'],PASSWORD_DEFAULT);
+        $senha = password_hash($_POST['senha'],PASSWORD_DEFAULT);
 
         $insert = $conn->prepare("insert into usuario (nome,email,senha,admin) values
                                 (:nome,:email,:senha,false)");
@@ -53,6 +53,9 @@
 
         if ( $insert->execute() ) {
             echo "<script>alert('Usuário $nome criado com sucesso !');</script>";
+
+            setcookie('usuario', $_POST['email'], time() + 86400);
+            setcookie('senha', base64_encode($_POST['senha']), time() + 86400);
 
             $_SESSION['statusConectado'] = true;
             $_SESSION['login'] = $nome;

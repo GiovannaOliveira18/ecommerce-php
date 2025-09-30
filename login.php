@@ -77,6 +77,8 @@
     if ( $_POST ) {
         include "util.php";
         session_start();
+        setcookie('usuario', $usuario, time() + 86400);
+        setcookie('senha', base64_encode($senha), time() + 86400);
 
         $usuario = $_POST['usuario'];
         $conn = conecta();
@@ -97,7 +99,7 @@
             (...)
         */
 
-        $senha   = $_POST['senha'];
+        $senha  = $_POST['senha'];
 
         $select->execute();
         $linha = $select->fetch();

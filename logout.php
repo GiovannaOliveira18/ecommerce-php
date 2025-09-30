@@ -2,7 +2,9 @@
     include ("cabecalho.php");
 
     session_destroy();
-    setcookie("PHPSESSID", "", -1);
+    
+    setcookie('usuario', '', time() - 3600);
+    setcookie('senha', '', time() - 3600);
 
     session_start();
     session_regenerate_id();
