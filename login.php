@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - ECO LUXO</title>
     <link rel="stylesheet" href="styleLogin.css">
+    <link rel="stylesheet" href="styleHeader.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -12,12 +14,24 @@
             <img src="imgsEcomerce/SITE_EcoLuxo.png" alt="Logo EcoLuxo" height="100px">
         </div>
         
+    <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="Produtos.html"><i class="fa-solid fa-store"></i> Produtos</a>
+      <a href="Carrinho.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a>
+      <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
+    </nav>
+
     </header>
+    
+  <div class="menu-secundario">
+    <p>Faça seu Login e volte às compras</p>
+  </div>
+
 
     <main class="login-container">
         <div class="login-box">
             <h2>Bem Vindo(a) de volta!</h2>
-            <p>Faça seu Login e volte às compras</p>
+            
 
             <form method="post" action="">
                 <label for="usuario">E-mail</label>
@@ -36,6 +50,48 @@
         </div>
 
     </main>
+    
+  <footer class="rodape">
+    <div class="footer-container">
+      <div class="footer-coluna">
+        <h3>ECO LUXO</h3>
+        <p>Sua lojinha virtual </p>
+      </div>
+      <div class="footer-coluna">
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="QuemSomos.php">Entre em contato</a></li>
+          <li><a href="QuemSomos.php">Sobre nós</a></li>
+        </ul>
+      </div>
+      <div class="footer-coluna">
+        <h4>Ajuda</h4>
+        <ul>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-pagamentos">
+
+        <h4>Formas de Pagamento</h4>
+
+        <div class="pagamentos-icones">
+          <img src="https://img.icons8.com/color/48/pix.png" alt="Pix" title="Pix" style="width:25px;height:25px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/639/639365.png" alt="Dinheiro" title="Dinheiro"
+            style="width:25px;height:25px;">
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Giovanna, Henrique Hikaru, Guilherme, Jefferson, Renan, Matheus Sgorlon. Todos os direitos
+        reservados.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
 
