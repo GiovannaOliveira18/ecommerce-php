@@ -11,7 +11,10 @@
     $insert->bindParam(':nome', $_POST['nome']);
     $insert->bindParam(':telefone', $_POST['telefone']);
     $insert->bindParam(':email', $_POST['email']);
-    $insert->bindParam(':senha', $_POST['senha']);
+    
+    $senhaCripto = password_hash($_POST['senha'],PASSWORD_DEFAULT);
+    $insert->bindParam(":senha",$senhaCripto);
+
     $insert->bindParam(':admin', $_POST['admin']);
 
     if ($insert->execute() > 0) {

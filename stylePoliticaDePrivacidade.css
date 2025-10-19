@@ -1,0 +1,114 @@
+/* ====== RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====== CORPO ====== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f6fff8;
+  color: #081c15;
+  line-height: 1.6;
+}
+
+/* ====== HERO ====== */
+.politica-hero {
+  background: linear-gradient(to right, #74c69d, #40916c);
+  color: white;
+  text-align: center;
+  padding: 100px 20px 60px;
+  margin-top: 120px; /* espaço para header */
+  border-bottom: 4px solid #1b4332;
+}
+
+.politica-hero h1 {
+  font-size: 42px;
+  letter-spacing: 1px;
+}
+
+.politica-hero .subtitulo {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #f6fff8;
+}
+
+/* ====== CONTEÚDO ====== */
+.politica-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 80px;
+}
+
+.politica-content {
+  background: #ffffff;
+  padding: 50px;
+  max-width: 1000px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border: 1px solid #d8f3dc;
+}
+
+.politica-content h2 {
+  font-size: 24px;
+  color: #1b4332;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-left: 4px solid #74c69d;
+  padding-left: 10px;
+}
+
+.politica-content p {
+  font-size: 17px;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.politica-content ul {
+  list-style-type: disc;
+  margin-left: 30px;
+  margin-bottom: 15px;
+}
+
+.politica-content li {
+  margin-bottom: 8px;
+}
+
+/* ====== FOOTNOTE ====== */
+.politica-footnote {
+  margin-top
+: 30px;
+  font-size: 14px;
+}
+
+/* ====== HERO ====== */
+.politica-hero {
+  width: 100%; /* garante largura total */
+  background: linear-gradient(to right, #74c69d, #40916c);
+  color: white;
+  text-align: center;
+  padding: 100px 20px 60px;
+  margin-top: 120px; /* espaço para o header fixo */
+  border-bottom: 4px solid #1b4332;
+
+  /* Centralizar o conteúdo e limitar largura interna */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.politica-hero h1 {
+  font-size: 42px;
+  letter-spacing: 1px;
+  max-width: 1000px; /* opcional para não esticar demais em telas grandes */
+}
+
+.politica-hero .subtitulo {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #f6fff8;
+  max-width: 1000px; /* opcional */
+}

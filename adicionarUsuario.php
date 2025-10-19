@@ -2,84 +2,90 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Adicionar Usuário - Eco Luxo</title>
-  <link rel="stylesheet" href="style.css">
+  <title>EcoLuxo - Adicionar Usuário</title>
   <link rel="stylesheet" href="styleHeader.css">
+  <link rel="stylesheet" href="styleFooter.css">
   <style>
-    /* body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #f4f4f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    } */
+    
+ body {
+  background-color: #f4f4f4;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
 
-    .container {
-      background: #fff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      width: 400px;
-    }
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+  padding: 60px 20px;      
+  box-sizing: border-box;
+}
 
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #2e7d32;
-    }
+.container {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 90%;
+}
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
 
-    label {
-      font-weight: bold;
-      text-align: left;
-      font-size: 14px;
-    }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-    input, select {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-    }
+label {
+  font-weight: bold;
+  text-align: left;
+  font-size: 14px;
+}
 
-    button {
-      background: #2e7d32;
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background 0.3s;
-    }
+input, select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
 
-    button:hover {
-      background: #1b5e20;
-    }
+button {
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
 
-    .links {
-      text-align: center;
-      margin-top: 20px;
-    }
+button:hover {
+  background: #1b5e20;
+}
 
-    .links a {
-      margin: 0 10px;
-      color: #2e7d32;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
-    }
+.links {
+  text-align: center;
+  margin-top: 20px;
+}
 
-    .links a:hover {
-      color: #1b5e20;
-    }
+.links a {
+  margin: 0 10px;
+  color: #2e7d32;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: #1b5e20;
+}
   </style>
 </head>
 <body>
@@ -102,6 +108,8 @@
       <span></span>
     </div>
   </header>
+
+  <main>
   <div class="container">
     <h2>Cadastro de Usuário</h2>
 
@@ -133,46 +141,44 @@
       <a href="login.php">Login</a>
     </div>
   </div>
+  </main>
+ <!-- Footer -->
 
-  <footer class="rodape">
-    <div class="footer-container">
-      <div class="footer-coluna">
-        <h3>ECO LUXO</h3>
-        <p>Sua lojinha virtual </p>
-      </div>
-      <div class="footer-coluna">
-        <h4>Institucional</h4>
-        <ul>
-          <li><a href="QuemSomos.php">Entre em contato</a></li>
-          <li><a href="QuemSomos.php">Sobre nós</a></li>
-        </ul>
-      </div>
-      <div class="footer-coluna">
-        <h4>Ajuda</h4>
-        <ul>
-          <li><a href="#">Política de Privacidade</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-pagamentos">
-
-        <h4>Formas de Pagamento</h4>
-
-        <div class="pagamentos-icones">
-          <img src="https://img.icons8.com/color/48/pix.png" alt="Pix" title="Pix" style="width:25px;height:25px;">
-          <img src="https://cdn-icons-png.flaticon.com/512/639/639365.png" alt="Dinheiro" title="Dinheiro"
-            style="width:25px;height:25px;">
-
+ <footer class="rodape">
+      <div class="footer-container">
+        <div class="footer-coluna">
+          <h3>ECO LUXO</h3>
+          <p>Sua lojinha virtual </p>
+        </div>
+        <div class="footer-coluna">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="QuemSomos.php">Sobre nós</a></li>
+          </ul>
+        </div>
+        <div class="footer-coluna">
+          <h4>Ajuda</h4>
+          <ul>
+            <li><a href="QuemSomos.php" id="contato">Contato</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+          </ul>
         </div>
 
+        <div class="footer-pagamentos">
+
+          <h4>Formas de Pagamento</h4>
+
+          <div class="pagamentos-icones">
+            <img src="https://cdn-icons-png.flaticon.com/512/639/639365.png" alt="Dinheiro" title="Dinheiro"
+              style="width:25px;height:25px;">
+          </div>
+        </div>
       </div>
 
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 Giovanna, Henrique Hikaru, Guilherme, Jefferson, Renan, Matheus Sgorlon. Todos os direitos
-        reservados.</p>
-    </div>
-  </footer>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Giovanna, Henrique Hikaru, Guilherme, Jefferson, Renan, Matheus Sgorlon. Todos os direitos
+          reservados.</p>
+      </div>
+    </footer>
 </body>
 </html>

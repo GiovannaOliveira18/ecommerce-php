@@ -1,11 +1,59 @@
+<?php
+include "util.php";
+
+if ($_POST) {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $usuario = $_POST['usuario'] ?? '';
+    $senha = $_POST['senha'] ?? '';
+
+    if ($usuario && $senha) {
+        setcookie('usuario', $usuario, time() + 86400);
+        setcookie('senha', base64_encode($senha), time() + 86400);
+    }
+
+    $conn = conecta();
+
+    $select = $conn->prepare("SELECT id_usuario, nome, senha, admin 
+                              FROM usuario 
+                              WHERE email = :usuario");
+
+    $select->bindParam(":usuario", $usuario);
+    $select->execute();
+
+    $linha = $select->fetch(PDO::FETCH_ASSOC);
+
+    if ($linha && password_verify($senha, $linha['senha'])) {
+        $_SESSION['statusConectado'] = true;
+        $_SESSION['id_usuario'] = $linha['id_usuario'];
+        $_SESSION['admin'] = $linha['admin'];
+        $_SESSION['login'] = $linha['nome'];
+        header("Location: index.php");
+        exit;
+    } else {
+        $_SESSION['statusConectado'] = false;
+        $_SESSION['admin'] = false;
+        $_SESSION['login'] = "";
+        echo "<script>alert('Usuário ou senha incorreta!!');</script>";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - ECO LUXO</title>
+    <title>EcoLuxo - Entrar</title>
     <link rel="stylesheet" href="styleLogin.css">
     <link rel="stylesheet" href="styleHeader.css">
+    <link rel="stylesheet" href="styleFooter.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,10 +63,7 @@
         </div>
         
     <nav>
-      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="Produtos.html"><i class="fa-solid fa-store"></i> Produtos</a>
-      <a href="Carrinho.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a>
-      <a href="login.html"><i class="fa-solid fa-user"></i> Login</a>
+      <?php include "nav.php"; ?>
     </nav>
 
     </header>
@@ -28,28 +73,48 @@
   </div>
 
 
-    <main class="login-container">
+    <main>
+
+    <div class="login-container">
+
+    
         <div class="login-box">
-            <h2>Bem Vindo(a) de volta!</h2>
-            
+
 
             <form method="post" action="">
-                <label for="usuario">E-mail</label>
-                <input name="usuario" type="text" id="usuario" placeholder="Digite seu e-mail">
+              <h1>Login</h1>
 
-                <label for="senha">Senha</label>
-                <input name="senha" type="password" id="senha" placeholder="Digite sua senha">
+              <div class="input-box">
+                  <input name="usuario" type="text" id="usuario" placeholder="Digite seu e-mail">
+                  <i class="fa-solid fa-user"></i>
+              </div>
+               <div class="input-box">
+               </div>
+               <div class="input-box">
+                   <input name="senha" type="password" id="senha" placeholder="Digite sua senha">
+                   <i class="fa-solid fa-key"></i>
+               </div>
+               <div class="senha-link">
+               <a href="esqueci.php" class="criar">Esqueci minha senha</a><br>
+               </div>
 
                 <button type="submit" class="btn-login" >Entrar</button>
-            </form>
+              </form>
+            </div>
 
-            <p class="criar">Ou crie uma nova conta e comece agora!</p>
-            <a href="cadastro.php" class="btn-criar">CRIAR NOVA CONTA</a>
-            <br><a href="index.php" class="btn-voltar"> Voltar </a>
+            <div class="toggle-box">
 
+              <div class="toggle-panel toggle-left">
+                <h1>Olá, bem vindo!!</h1>
+                <p>Não tem uma conta?</p>
+                <a href="cadastro.php" class="registre-btn">REGISTRE-SE</a>
+
+            </div>
         </div>
+     </div>
 
     </main>
+
     
   <footer class="rodape">
     <div class="footer-container">
@@ -95,88 +160,4 @@
 </body>
 </html>
 
-<?php
-    /*include ("cabecalho.php");
-
-    $_SESSION['sessaoConectado'] = false;
-    $_SESSION['sessaoLogin'] = "";
-
-    if ( isset($_COOKIE['loginCookie']) ) {
-        $loginCookie = $_COOKIE['loginCookie'];
-    }
-    else {
-        $loginCookie = '';
-    }
-
-    if ( $_POST ) {
-        $login = $_POST['login'];
-        $senha = $_POST['senha'];
-        setcookie('loginCookie', $login, time()+86400);
-
-        if ( $login == 'user@email' && $senha == '123' ) {
-            $_SESSION['sessaoConectado'] = true;
-            $_SESSION['sessaoLogin'] = $login;
-
-            header('Location: index.php');
-        }
-
-        else { ?>
-            <!-- echo "<b>Usuario ou senha invalidos!!</b>
-            <br><br><a href='index.php'>Voltar</a>"; -->
-                <script>
-                    alert("Usuário ou senha incorreta!!");
-                </script>
-            <?php
-        }
-    }*/
-
-    if ( $_POST ) {
-        include "util.php";
-        session_start();
-        setcookie('usuario', $usuario, time() + 86400);
-        setcookie('senha', base64_encode($senha), time() + 86400);
-
-        $usuario = $_POST['usuario'];
-        $conn = conecta();
-
-        $select = $conn->prepare("select nome,senha,admin 
-                                    from usuario 
-                                    where email=:usuario");
-
-        $select->bindParam(":usuario",$usuario);
-
-
-        /*
-            OBSERVACAO, ao adotarmos criptografia na senha, 
-            lembre que insertUsuario.php precisara passar por uma melhoria:
-            (...)
-            $senhaCripto = password_hash($senha,PASSWORD_DEFAULT);
-            $insert->bindParams(":senha",$senhaCripto);
-            (...)
-        */
-
-        $senha  = $_POST['senha'];
-
-        $select->execute();
-        $linha = $select->fetch();
-        
-        if ( password_verify($senha,$linha['senha']) ) {
-            $_SESSION['statusConectado'] = true;
-            $_SESSION['admin'] = $linha['admin'];
-            $_SESSION['login'] = $linha['nome'];
-            header("location: index.php"); 
-        } else {
-            $_SESSION['statusConectado'] = false;
-            $_SESSION['admin'] = false;
-            $_SESSION['login'] = ""; 
-            echo "<script>
-                    alert('Usuário ou senha incorreta!!');
-                </script>";
-        }
-        
-                   
-                    
-    }   
-
-?>
 

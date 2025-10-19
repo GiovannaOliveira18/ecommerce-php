@@ -2,10 +2,10 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Adicionar Usuário - Eco Luxo</title>
+  <title>EcoLuxo - Cadastrar</title>
   <link rel="stylesheet" href="styleCadastro.css">
   <link rel="stylesheet" href="styleHeader.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styleFooter.css">
 </head>
 
 <header>
@@ -20,11 +20,7 @@
   </nav>
 </header>
 
-<div class="menu-secundario">
-  <a href="QuemSomos.html">Quem somos</a>
-  <a href="#contato">Contato</a>
-</div>
-<br>
+<br><br>
 
 <body>
   <div class="container">
@@ -49,49 +45,49 @@
       <a href="login.php">Login</a>
     </div>
   </div>
-  <br>
+  <br><br>
 
-  <footer class="rodape">
-    <div class="footer-container">
-      <div class="footer-coluna">
-        <h3>ECO LUXO</h3>
-        <p>Sua lojinha virtual </p>
-      </div>
-      <div class="footer-coluna">
-        <h4>Institucional</h4>
-        <ul>
-          <li><a href="#">Entre em contato</a></li>
-          <li><a href="QuemSomos.html">Sobre nós</a></li>
-        </ul>
-      </div>
-      <div class="footer-coluna">
-        <h4>Ajuda</h4>
-        <ul>
-          <li><a href="#" id="contato">Contato</a></li>
-          <li><a href="#">Política de Privacidade</a></li>
-        </ul>
-      </div>
 
-      <div class="footer-pagamentos">
+    <!-- Footer -->
 
-        <h4>Formas de Pagamento</h4>
-
-        <div class="pagamentos-icones">
-          <img src="https://img.icons8.com/color/48/pix.png" alt="Pix" title="Pix" style="width:25px;height:25px;">
-          <img src="https://cdn-icons-png.flaticon.com/512/639/639365.png" alt="Dinheiro" title="Dinheiro"
-            style="width:25px;height:25px;">
-
+    <footer class="rodape">
+      <div class="footer-container">
+        <div class="footer-coluna">
+          <h3>ECO LUXO</h3>
+          <p>Sua lojinha virtual </p>
+        </div>
+        <div class="footer-coluna">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="QuemSomos.php">Sobre nós</a></li>
+          </ul>
+        </div>
+        <div class="footer-coluna">
+          <h4>Ajuda</h4>
+          <ul>
+            <li><a href="QuemSomos.php" id="contato">Contato</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+          </ul>
         </div>
 
+        <div class="footer-pagamentos">
+
+          <h4>Formas de Pagamento</h4>
+
+          <div class="pagamentos-icones">
+            <img src="https://cdn-icons-png.flaticon.com/512/639/639365.png" alt="Dinheiro" title="Dinheiro"
+              style="width:25px;height:25px;">
+          </div>
+        </div>
       </div>
 
-    </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Giovanna, Henrique Hikaru, Guilherme, Jefferson, Renan, Matheus Sgorlon. Todos os direitos
+          reservados.</p>
+      </div>
+    </footer>
 
-    <div class="footer-bottom">
-      <p>&copy; 2025 Giovanna, Henrique Hikaru, Guilherme, Jefferson, Renan, Matheus Sgorlon. Todos os direitos
-        reservados.</p>
-    </div>
-  </footer>
+
 </body>
 </html>
 

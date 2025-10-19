@@ -1,0 +1,299 @@
+slide img {
+  width: 220px;           /* diminui o tamanho das imagens */
+  height: 220px;
+  object-fit: cover;      /* garante que a imagem se encaixe sem distorcer */
+  border-radius: 50%;     /* deixa as imagens redondas, opcional */
+  margin-bottom: 10px;
+}
+
+/* Texto dentro dos slides */
+.slide p {
+  font-size: 18px;        /* aumenta o tamanho da fonte */
+  line-height: 1.6;       /* dá mais espaçamento entre linhas */
+  text-align: justify;    /* justifica o texto */
+  max-width: 700px;       /* limita a largura do texto pra não ocupar toda a tela */
+  margin: 0 auto;         /* centraliza o texto */
+}
+
+/* Ajusta a seção geral do time */
+.integrantes {
+  text-align: center;
+  padding: 40px;
+}
+
+.integrantes h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Opcional: deixa o carrossel mais equilibrado */
+.slider-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+
+.integrantes {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f3f3f3;
+}
+
+.integrantes h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #0b5e36;
+}
+
+.slider-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slide.active {
+  display: flex;
+}
+
+.slide img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slide p {
+  font-size: 17px;
+  max-width: 700px;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #0b5e36;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 24px;
+  transition: background-color 0.3s;
+  z-index: 10;
+}
+
+button.prev:hover,
+button.next:hover {
+  background-color: #13a05f;
+}
+
+button.prev { left: 10px; }
+button.next { right: 10px; }
+
+
+.contatos {
+  display: flex;
+  justify-content: center; /* centraliza na horizontal */
+  align-items: center; /* alinha verticalmente */
+  gap: 40px; /* espaço entre os itens */
+  text-align: center;
+  flex-wrap: wrap; /* permite quebrar linha em telas pequenas */
+}
+
+.item img {
+  display: block;
+  margin: 0 auto;
+}
+
+.item p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* ==== SEÇÃO HEADER ==== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d8f3dc;
+  padding: 15px 40px;
+  border-bottom: 3px solid #40916c;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo img {
+  height: 80px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1b4332;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  color: #2d6a4f;
+  transform: scale(1.05);
+}
+
+/* ==== MENU SECUNDÁRIO ==== */
+.menu-secundario {
+  background-color: #95d5b2;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.menu-secundario a {
+  color: #081c15;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 20px;
+  transition: color 0.3s ease;
+}
+
+.menu-secundario a:hover {
+  color: #40916c;
+}
+
+/* ==== SEÇÃO QUEM SOMOS ==== */
+.quem-somos {
+  background-color: #f6fff8;
+  padding: 80px 15%;
+  text-align: center;
+}
+
+.quem-somos h1 {
+  font-size: 40px;
+  color: #081c15;
+  font-weight: 900;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.quem-somos p {
+  color: #1b4332;
+  font-size: 18px;
+  line-height: 1.7;
+  text-align: justify;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ==== RESPONSIVIDADE ==== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .quem-somos {
+    padding: 60px 8%;
+  }
+
+  .quem-somos h1 {
+    font-size: 32px;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #08330a;
+  padding: 20px 40px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: white;
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #80ff80;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: #08330a;
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    padding: 20px 0;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
+}

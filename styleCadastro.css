@@ -1,8 +1,7 @@
 body {
      
   background-image: url('imgsEcomerce/SITE\ EcoLuxo\ \(1\).png'); 
-  flex-direction: column;
-  min-height: 100vh;
+
 }
 .container {
   display: grid;
@@ -173,3 +172,4 @@ padding: 22px;
 font-size: 18px;
 }
 }
+

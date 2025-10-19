@@ -1,10 +1,15 @@
 @font-face {
   font-family: 'BreeSerif';
-  src: url('fontes/BreeSerif-Regular.ttf') format('truetype');
+  src: url('fontes/BreeSerif-Regular.ttf');
   font-weight: normal;
   font-style: normal;
 }
-
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 * {
 margin: 0;
 padding: 0;
@@ -13,11 +18,13 @@ font-family: BreeSerif, sans-serif;
 }
 
 body {
-background-image: url('imgsEcomerce/SITE\ EcoLuxo\ \(1\).png'); 
 background-size: cover; 
 background-position: center;  
 background-repeat: no-repeat; 
 min-height: 100vh;            
+}
+main{
+  flex:1;
 }
 
 header {
@@ -25,9 +32,10 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 background: #d7ede3;
-padding: 15px 40px;
+padding: 20px 40px;
 transition: 0.3s;
 position: sticky;
+font-size: 18px;
 top: 0;
 z-index: 1000;
 }
@@ -83,65 +91,6 @@ main p {
   font-size: 18px;
   color: #555;
 }
-
-
-/*PARTE DO RODAPE E FOOTER*/
-.rodape {
-  background-color: #196319;
-  color: #fff;
-  padding: 40px 20px 20px;
-}
-
-.footer-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-coluna h3,
-.footer-coluna h4 {
-  margin-bottom: 10px;
-  color: #40a048;
-}
-
-.footer-coluna ul {
-  list-style: none;
-}
-
-.footer-coluna ul li {
-  margin-bottom: 8px;
-}
-
-.footer-coluna ul li a {
-  color: #fff;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.footer-coluna ul li a:hover {
-  color: #88fa88;
-}
-
-.footer-pagamentos {
-  text-align: center;
-}
-
-.pagamentos-icones img {
-  margin: 5px;
-  vertical-align: middle;
-  width: 30px;
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  padding-top: 10px;
-}
-
 @media screen and (max-width: 992px) {
 header {
 padding: 15px 20px;
@@ -167,9 +116,6 @@ gap: 8px;
 }
 header nav a {
 margin: 5px 0;
-}
-.menu-toggle {
-display: flex;
 }
 }
 

@@ -1,118 +1,125 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos - EcoLuxo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"
-    >
-    <link rel="stylesheet" href="styleHeader.css">
-    <link rel="stylesheet" href="styleProd.css">
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <title>EcoLuxo - Produtos</title>
+  <link rel="stylesheet" href="styleHeader.css">
+  <link rel="stylesheet" href="styleProd.css">
+  <link rel="stylesheet" href="styleFooter.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
 
 <body>
-  
   <header>
     <div class="logo">
       <img src="imgsEcomerce/SITE_EcoLuxo.png" alt="Logo EcoLuxo" height="80px">
+     
     </div>
+
+    <?php
+    include "util.php";
+    $conn = conecta();
+
+
+    $varSQL = "select * from produto";
+    $select = $conn->query($varSQL);
+
+    ?>
 
     <?php include "nav.php"; ?>
-    
-    <!-- <nav>
-      <a href="index.php"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="produtos.php"><i class="fa-solid fa-store"></i> Produtos</a>
-      <a href="carrinho.php"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a>
-      <a href="login.php"><i class="fa-solid fa-user"></i> Login</a>
-    </nav> -->
-
-     <div class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
 
   </header>
 
 
-  <div class="promo-bar">
-    ✨ APROVEITE NOSSOS PRODUTOS, NAQUELE PRECINHO! ✨
+  <div class="menu-secundario">
+    <h3>ENTRADA PERMITIDA SOMENTE PARA ADMINISTRADORES !!</h3>
+    <a href="index.php"><i class="fa-solid fa-house"></i>SAIR</a>
   </div>
+  <br>
 
-  <main>
-  <section class="produtos">
-  <article class="produto">
-    <img src="imgsEcomerce/bolsaEle.png" alt="Ecobag Estampada">
-    <p class="preco">R$25,00</p>
-    <p class="nome">EcoBag ELETRÔNICA</p>
-    <p class="parcelamento">Aceitamos PIX</p>
-    <p class="avaliacao">⭐⭐⭐⭐⭐</p>
-    <button class="btn-saiba">Saiba mais</button>
-    <div class="descricao-produto">
-      Esta EcoBag eletrônica é feita com material resistente, ideal para carregar seus gadgets com estilo.
-    </div>
-    <a href="carrinho.php" class="btn-comprar">Comprar</a>
-  </article>
+  <h2>Lista de Usuários</h2>
 
-  <article class="produto">
-    <img src="imgsEcomerce/bolsaInf.png" alt="Ecobag Lisa">
-    <p class="preco">R$25,00</p>
-    <p class="nome">EcoBag INFORMÁTICA</p>
-    <p class="parcelamento">Aceitamos PIX</p>
-    <p class="avaliacao">⭐⭐⭐⭐⭐</p>
-    <button class="btn-saiba">Saiba mais</button>
-    <div class="descricao-produto">
-      EcoBag de Informática: resistente e prática para carregar livros, notebooks e acessórios do dia a dia.
-    </div>
-    <a href="carrinho.php" class="btn-comprar">Comprar</a>
-  </article>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Tipo</th>
+          <th>Valor Unitário</th>
+          <th>Quantidade</th>
+          <th>Imagem</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
 
-  <article class="produto">
-    <img src="imgsEcomerce/bolsaMec.png" alt="Ecobag Mecânica">
-    <p class="preco">R$25,00</p>
-    <p class="nome">EcoBag MECÂNICA</p>
-    <p class="parcelamento">Aceitamos PIX</p>
-    <p class="avaliacao">⭐⭐⭐⭐⭐</p>
-    <button class="btn-saiba">Saiba mais</button>
-    <div class="descricao-produto">
-      EcoBag Mecânica: feita com tecido reforçado, perfeita para carregar ferramentas leves ou materiais de estudo.
-    </div>
-    <a href="carrinho.php" class="btn-comprar">Comprar</a>
-  </article>
+      <tbody>
+        <!-- <td>" . ($linha['excluido'] == 1 ? "Sim" : "Não") . "</td> -->
 
-  <article class="produto">
-    <img src="imgsEcomerce/bolsaSla.png" alt="EcoBags Personalizadas">
-    <p class="preco">R$25,00</p>
-    <p class="nome">EcoBags Personalizadas</p>
-    <p class="parcelamento">Aceitamos PIX</p>
-    <p class="avaliacao">⭐⭐⭐⭐⭐</p>
-    <button class="btn-saiba">Saiba mais</button>
-    <div class="descricao-produto">
-      EcoBags personalizadas: escolha seu modelo e estampa favorita para levar estilo e sustentabilidade.
-    </div>
-    <a href="carrinho.php" class="btn-comprar">Comprar</a>
-  </article>
+        <?php
+        while ($linha = $select->fetch()) {
+          if (!$linha["excluido"] == 1) {
+            echo "<tr>
+            <td>" . $linha['nome'] . "</td>
+            <td>" . $linha['descricao'] . "</td>
+            <td>" . $linha['tipo'] . "</td>
+            <td>R$ " . number_format($linha['valor_unitario'], 2, ',', '.') . "</td>
+            <td>" . $linha['qtde_produtos'] . "</td>
+            <td><img src='imgsEcomerce/" . $linha['imagem'] . "' alt='" . $linha['nome'] . "' height='100'></td>
+            <td>
+              <a href='alterarProduto.php?id_produto=" . $linha['id_produto'] . "'><i class='fa-solid fa-pencil'></i> </a>
+              <a href='excluirProduto.php?id_produto=" . $linha['id_produto'] . "'><i class='fa-solid fa-trash'></i> </a>
+            </td>
+          </tr>";
+          }
+        }
+        ?>
+      </tbody>
+    </table>
+  </div>
+  <a class="adicionar" href="adicionarProduto.php">+ Adicionar Produto</a>
 
-  <article class="produto">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5460vtVj_DGjABKX4sFdGW7WFjEWvCJdcQ&s" alt="Perfume">
-    <p class="preco">R$25,00</p>
-    <p class="nome">Perfumes</p>
-    <p class="parcelamento">Aceitamos PIX</p>
-    <p class="avaliacao">⭐⭐⭐⭐⭐</p>
-    <button class="btn-saiba">Saiba mais</button>
-    <div class="descricao-produto">
-      Perfumes sofisticados e de longa duração, ideais para uso diário ou presente especial.
-    </div>
-    <a href="carrinho.php" class="btn-comprar">Comprar</a>
-  </article>
-</section>
+  <!-- Footer -->
 
-  </main>
+  <footer class="rodape">
+      <div class="footer-container">
+        <div class="footer-coluna">
+          <h3>ECO LUXO</h3>
+          <p>Sua lojinha virtual </p>
+        </div>
+        <div class="footer-coluna">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="QuemSomos.php">Sobre nós</a></li>
+          </ul>
+        </div>
+        <div class="footer-coluna">
+          <h4>Ajuda</h4>
+          <ul>
+            <li><a href="QuemSomos.php" id="contato">Contato</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-pagamentos">
+
+          <h4>Formas de Pagamento</h4>
+
+          <div class="pagamentos-icones">
+            <img src="https://cdn-icons-png.flaticon.com/512/639/639365.png" alt="Dinheiro" title="Dinheiro"
+              style="width:25px;height:25px;">
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Giovanna, Henrique Hikaru, Guilherme, Jefferson, Renan, Matheus Sgorlon. Todos os direitos
+          reservados.</p>
+      </div>
+    </footer>
 
 </body>
-</html>
 
+</html>

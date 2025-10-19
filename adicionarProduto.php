@@ -2,23 +2,23 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="styleFooter.css">
+  <title>EcoLuxo - Adicionar Produto</title>
   <link rel="stylesheet" href="styleHeader.css">
-  <title>EcoLuxo - Editar Usuário</title>
-
+  
+  <link rel="stylesheet" href="styleFooter.css">
   <style>
-
-body {
+    
+    body {
   background-color: #f4f4f4;
   margin: 0;
   font-family: 'Poppins', sans-serif;
 }
+
 main {
   width: 100%;
   display: flex;
   justify-content: center; 
-  align-items: center;      
-  padding: 60px 20px;
+  padding: 60px 20px;      
   box-sizing: border-box;
 }
 
@@ -29,50 +29,66 @@ main {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   width: 400px;
   max-width: 90%;
-  margin: 0 auto;   
 }
 
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
 
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #2e7d32;
-    }
-
-    form {
+form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-    label {
-      font-weight: bold;
-      font-size: 14px;
-    }
+label {
+  font-weight: bold;
+  text-align: left;
+  font-size: 14px;
+}
 
-    input, select {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-    }
+input, select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
 
-    button {
-      background: #2e7d32;
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background 0.3s;
-    }
+button {
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
 
-    button:hover {
-      background: #1b5e20;
-    }
+button:hover {
+  background: #1b5e20;
+}
+
+.links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.links a {
+  margin: 0 10px;
+  color: #2e7d32;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: #1b5e20;
+}
   </style>
-
+</head>
 <body>
 
 <header>
@@ -92,55 +108,45 @@ main {
       <span></span>
       <span></span>
     </div>
-
   </header>
-</head>
 
+  <main>
   <div class="container">
-    <h2>Editar Usuário</h2>
+    <h2>Cadastro de Produto</h2>
 
-    <?php 
+    <form action="uploadProdutos.php" method="post" enctype="multipart/form-data">
 
-    include "util.php";
-    $conn = conecta();
+      <label for="nome">Nome:</label>
 
-    $id_usuario = $_GET['id_usuario'];
+      <input type="text" id="nome" name="nome" required>
 
-    $varSQL = "SELECT * FROM usuario WHERE id_usuario = :id_usuario";
-    $select = $conn->prepare($varSQL);
-    $select->bindParam(':id_usuario', $id_usuario);
-    $select->execute();
+      <label for="descricao">Descrição:</label>
+      <input type="text" id="descricao" name="descricao" required>
 
-    $linha = $select->fetch();
+      <label for="tipo">Tipo:</label>
+      <input type="text" id="tipo" name="tipo" required>
 
-    $nome = $linha['nome'];
-    $email = $linha['email'];
-    $telefone = $linha['telefone'];
-    $senha = $linha['senha'];
-    $admin = $linha['admin'];
-    ?>
+      <label for="valor_unitario">Valor Unitário:</label>
+      <input type="number" id="valor_unitario" name="valor_unitario" step="0.01" required>
 
-    <form action="updateUsuario.php" method="post">
-      <input type="hidden" name="id_usuario" value="<?php echo $id_usuario; ?>">
+      <label for="quantidade">Quantidade:</label>
+      <input type="number" id="quantidade" name="quantidade" required>
 
-      <label>Nome:</label>
-      <input type="text" name="nome" value="<?php echo $nome; ?>">
+      <!-- <input type="hidden" id="excluido" name="excluido" value="0"> -->
 
-      <label>E-mail:</label>
-      <input type="email" name="email" value="<?php echo $email; ?>">
+      <label for="imagem">Imagem:</label>
+      <input type="file" id="imagem" name="imagem" accept="image/*" required>
 
-      <label>Senha:</label>
-      <input type="password" name="senha" value="<?php echo $senha; ?>">
-
-      <label>Admin:</label>
-      <select name="admin">
-        <option value="0" <?php if($admin == 0) echo "selected"; ?>>Usuário comum</option>
-        <option value="1" <?php if($admin == 1) echo "selected"; ?>>Administrador</option>
-      </select>
-
-      <button type="submit">Salvar Alterações</button>
+      <button type="submit">Enviar</button>
     </form>
+
+    <div class="links">
+      <a href="usuarios.php">Usuários</a>
+      <a href="index.php">Página inicial</a>
+      <a href="login.php">Login</a>
+    </div>
   </div>
+  </main>
   <!-- Footer -->
 
   <footer class="rodape">
